@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video 2</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div id="video-container">
+        <video id="video" controls>
+            <source src="videos/video2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <script>
+        const video = document.getElementById('video');
+        const videoContainer = document.getElementById('video-container');
+
+        if (localStorage.getItem('video2Watched') === 'true') {
+            videoContainer.innerHTML = '<p id="message">Thanks for Watching!</p>';
+        }
+
+        video.onended = () => {
+            localStorage.setItem('video2Watched', 'true');
+            videoContainer.innerHTML = '<p id="message">Thanks for Watching!</p>';
+        };
+    </script>
+</body>
+</html>
